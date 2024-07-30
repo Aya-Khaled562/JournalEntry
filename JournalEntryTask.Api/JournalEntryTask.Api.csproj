@@ -20,9 +20,4 @@
     <ProjectReference Include="..\JournalEntryTask.Infrastructure\JournalEntryTask.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\Mapping\" />
-    <Folder Include="Common\Dtos\" />
-  </ItemGroup>
-
 </Project>

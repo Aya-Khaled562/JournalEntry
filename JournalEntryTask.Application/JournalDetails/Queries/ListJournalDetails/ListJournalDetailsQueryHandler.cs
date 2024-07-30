@@ -16,7 +16,7 @@ namespace JournalEntryTask.Application.JournalDetails.Queries.ListJournalDetails
 
         public async Task<ErrorOr<List<DomainJournalDetails>>> Handle(ListJournalDetailsQuery query, CancellationToken cancellationToken)
         {
-            return await _detailsRepository.GetAllAsync();
+            return await _detailsRepository.GetAllAsync(query.journalHeaderId);
         }
     }
 }

@@ -4,5 +4,5 @@ using DomainJournalDetails = JournalEntryTask.Domain.Models.JournalDetails;
 
 namespace JournalEntryTask.Application.JournalDetails.Queries.ListJournalDetails
 {
-    public record ListJournalDetailsQuery: IRequest<ErrorOr<List<DomainJournalDetails>>>;
+    public record ListJournalDetailsQuery(Guid journalHeaderId): IRequest<ErrorOr<List<DomainJournalDetails>>>;
 }

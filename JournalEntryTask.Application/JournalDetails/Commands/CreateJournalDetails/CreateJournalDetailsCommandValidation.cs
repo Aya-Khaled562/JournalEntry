@@ -25,7 +25,10 @@ namespace JournalEntryTask.Application.JournalDetails.Commands.CreateJournalDeta
 
             RuleFor(jd => jd.AccountId)
                 .NotEmpty().WithMessage("AccountId is required")
-                .Must(IsJournalHeaderIdValid).WithMessage("Invalid AccountId");
+                .Must(IsAccountIdValid).WithMessage("Invalid AccountId");
+
+            RuleFor(jd => jd)
+                .Must(BeMutuallyExclusive).WithMessage("Either Debit or Credit must be provided, but not both.");
         }
 
         private bool IsJournalHeaderIdValid(Guid journalHeaderId)
@@ -48,6 +51,11 @@ namespace JournalEntryTask.Application.JournalDetails.Commands.CreateJournalDeta
                 return false;
             }
             return true;
+        }
+
+        private bool BeMutuallyExclusive(CreateJournalDetailsCommand command)
+        {
+            return !(command.Debit != 0 && command.Credit != 0);
         }
     }
 }

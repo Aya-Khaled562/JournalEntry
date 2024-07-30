@@ -6,9 +6,14 @@ namespace JournalEntryTask.Application.JournalHeaders.Commands.CreateJournalHead
     {
         public CreateJournalHeaderCommandValidator()
         {
-            RuleFor(jh => jh.EntryDate).NotEmpty();
-            RuleFor(jh => jh.Description).NotEmpty();
-            RuleFor(jh => jh.EntryNumber).NotEmpty();
+            RuleFor(jh => jh.EntryDate)
+                 .NotEmpty().WithMessage("EntryDate is required");
+
+            RuleFor(jh => jh.Description)
+                .NotEmpty().WithMessage("Description is required");
+
+            RuleFor(jh => jh.EntryNumber)
+                .NotEmpty().WithMessage("EntryNumber is required");
         }
     }
 }

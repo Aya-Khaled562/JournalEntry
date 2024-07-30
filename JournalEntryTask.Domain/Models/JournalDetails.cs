@@ -1,6 +1,4 @@
-﻿    using System.ComponentModel.DataAnnotations.Schema;
-
-namespace JournalEntryTask.Domain.Models
+﻿namespace JournalEntryTask.Domain.Models
 {
     public class JournalDetails
     {

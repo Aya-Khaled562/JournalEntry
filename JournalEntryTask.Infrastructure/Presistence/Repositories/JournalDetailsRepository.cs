@@ -31,9 +31,9 @@ namespace JournalEntryTask.Infrastructure.Presistence.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<JournalDetails>> GetAllAsync()
+        public async Task<List<JournalDetails>> GetAllAsync(Guid journalHeaderId)
         {
-            return await _context.JournalDetails.ToListAsync();
+            return await _context.JournalDetails.Where(jd => jd.JournalHeaderId == journalHeaderId).ToListAsync();
         }
 
         public async Task<JournalDetails> GetByIdAsync(Guid id)

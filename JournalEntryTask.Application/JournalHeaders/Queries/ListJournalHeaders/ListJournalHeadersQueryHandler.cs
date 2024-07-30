@@ -9,9 +9,9 @@ namespace JournalEntryTask.Application.JournalHeaders.Queries.ListJournalHeaders
     {
         private readonly IJournalHeaderRepository _headerRepository;
 
-        public ListJournalHeadersQueryHandler(IJournalHeaderRepository _headerRepository)
+        public ListJournalHeadersQueryHandler(IJournalHeaderRepository headerRepository)
         {
-            _headerRepository = _headerRepository;
+            _headerRepository = headerRepository;
         }
         public async Task<ErrorOr<List<JournalHeader>>> Handle(ListJournalHeadersQuery query, CancellationToken cancellationToken)
         {

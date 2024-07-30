@@ -11,7 +11,7 @@ namespace JournalEntryTask.Application.Common.Behaviors
     {
         private readonly IValidator<TRequest> _validator;
 
-        public ValidationBehaviors(IValidator<TRequest>? validator)
+        public ValidationBehaviors(IValidator<TRequest>? validator = null)
         {
             _validator = validator;
         }
