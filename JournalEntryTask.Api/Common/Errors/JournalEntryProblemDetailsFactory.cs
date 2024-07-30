@@ -87,7 +87,7 @@ namespace JournalEntryTask.Api.Common.Errors
             var errors = httpContext?.Items[HttpContextItemKeys.Errors] as List<Error>;
             if (errors is not null)
             {
-                problemDetails.Extensions.Add("errorCodes", errors.Select(e => e.Code));
+                problemDetails.Extensions.Add("errors", errors.Select(e => e.Description));
             }
         }
     }

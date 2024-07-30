@@ -8,7 +8,7 @@ namespace JournalEntryTask.Api.Common.Dto
         public DateTime EntryDate { get; set; }
         public int EntryNumber { get; set; }
         public string Description { get; set; }
-        public List<JournalDetails> JournalDetails { get; set; }
+        public List<JournalDetails> JournalDetails { get; set; } = new();
     }
 
 }

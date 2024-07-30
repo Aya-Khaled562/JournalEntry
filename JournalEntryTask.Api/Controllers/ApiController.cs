@@ -1,8 +1,6 @@
 ﻿using ErrorOr;
 using JournalEntryTask.Api.Common.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace JournalEntryTask.Api.Controllers
 {
@@ -15,11 +13,6 @@ namespace JournalEntryTask.Api.Controllers
             if (errors.Count == 0)
             {
                 return Problem();
-            }
-
-            if(errors.All(err => err.Type == ErrorType.Validation))
-            {
-                return ValidationProblem(errors);
             }
 
             HttpContext.Items[HttpContextItemKeys.Errors] = errors;
@@ -38,15 +31,6 @@ namespace JournalEntryTask.Api.Controllers
             };
 
             return Problem(statusCode: statusCode, title: error.Description);
-        }
-        private IActionResult ValidationProblem(List<Error> errors)
-        {
-            var modelStateDictionary = new ModelStateDictionary();
-            foreach (var error in errors)
-            {
-                modelStateDictionary.AddModelError(error.Code, error.Description);
-            }
-            return ValidationProblem(modelStateDictionary);
         }
     }
 }
