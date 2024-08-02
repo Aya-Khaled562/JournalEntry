@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Journal Entries";
+}
+
+<div ng-app="journalApp" ng-controller="journalController">
+    <h1 class="my-4">Journal Headers</h1>
+    <a ng-click="navigateToCreate()" class="btn btn-success mb-3">Create New Journal Header</a>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Entry Date</th>
+                <th>Entry Number</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="header in journalHeaders">
+                <td>{{header.entryDate | date:'shortDate'}}</td>
+                <td>{{header.entryNumber}}</td>
+                <td>{{header.description}}</td>
+                <td>
+                    <a ng-click="navigateToEdit(header.id)" class="btn btn-primary btn-sm">Edit</a>
+                    <button class="btn btn-danger btn-sm" ng-click="deleteJournalHeader(header.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

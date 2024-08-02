@@ -48,7 +48,12 @@ namespace JournalEntryTask.Infrastructure.Presistence.Repositories
                 throw new KeyNotFoundException();
             }
 
-            _context.JournalHeaders.Update(journalHeader);
+            existingJournalHeader.EntryDate = journalHeader.EntryDate;
+            existingJournalHeader.EntryNumber = journalHeader.EntryNumber;
+            existingJournalHeader.Description = journalHeader.Description;
+
+            _context.JournalHeaders.Update(existingJournalHeader);
+
             await _context.SaveChangesAsync();
         }
     }

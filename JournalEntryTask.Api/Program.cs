@@ -11,9 +11,21 @@ namespace JournalEntryTask.Api
             var builder = WebApplication.CreateBuilder(args);
             {
                 builder.Services
-                        .AddPresentation()
+                        .AddApi()
                         .AddApplication()
                         .AddInfrastructure(builder.Configuration);
+
+                //CORS
+                builder.Services.AddCors(options =>
+                {
+                    options.AddPolicy("AllowAnyOrigin",builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
+                    
+                });
             }
            
 
@@ -24,6 +36,8 @@ namespace JournalEntryTask.Api
                     app.UseSwagger();
                     app.UseSwaggerUI();
                 }
+
+                app.UseCors("AllowAnyOrigin"); // Apply CORS policy
 
                 app.UseHttpsRedirection();
 

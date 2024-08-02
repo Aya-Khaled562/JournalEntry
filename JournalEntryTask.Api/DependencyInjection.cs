@@ -6,7 +6,7 @@ namespace JournalEntryTask.Api
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddPresentation(this IServiceCollection services)
+        public static IServiceCollection AddApi(this IServiceCollection services)
         {
             services.AddControllers();
             services.AddEndpointsApiExplorer();
@@ -15,6 +15,7 @@ namespace JournalEntryTask.Api
             //Override defualt of ProblemDetailsFactory which is responsible for Problem return to my Implementation
             services.AddSingleton<ProblemDetailsFactory , JournalEntryProblemDetailsFactory>();
             services.AddMappings();
+
             return services;
         }
     }

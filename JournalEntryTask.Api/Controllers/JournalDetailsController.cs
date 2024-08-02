@@ -4,14 +4,8 @@ using JournalEntryTask.Application.JournalDetails.Commands.DeleteJournalDetails;
 using JournalEntryTask.Application.JournalDetails.Commands.UpdateJournalDetails;
 using JournalEntryTask.Application.JournalDetails.Queries.GetJournalDetailsById;
 using JournalEntryTask.Application.JournalDetails.Queries.ListJournalDetails;
-using JournalEntryTask.Application.JournalHeaders.Commands.CreateJournalHeader;
-using JournalEntryTask.Application.JournalHeaders.Commands.DeleteJournalHeader;
-using JournalEntryTask.Application.JournalHeaders.Commands.UpdateJournalHeader;
-using JournalEntryTask.Application.JournalHeaders.Queries.GetJournalHeaderById;
-using JournalEntryTask.Application.JournalHeaders.Queries.ListJournalHeaders;
 using MapsterMapper;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JournalEntryTask.Api.Controllers

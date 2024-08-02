@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-app="journalApp" ng-controller="journalFormController" class="container my-4">
+    @* <h1 class="mb-4">{{journalHeader.id ? 'Edit' : 'Create'}} Journal Header</h1> *@
+
+    <form ng-submit="saveJournalHeader()" class="mb-4">
+        <div class="form-group">
+            <label for="entryDate">Entry Date</label>
+            <input type="date" id="entryDate" ng-model="journalHeader.entryDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="entryNumber">Entry Number</label>
+            <input type="number" id="entryNumber" ng-model="journalHeader.entryNumber" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" ng-model="journalHeader.description" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">{{journalHeader.id ? 'Save Changes' : 'Create'}}</button>
+    </form>
+
+    <h2 class="mb-4">Journal Details</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Debit</th>
+                <th>Credit</th>
+                <th>Account</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="detail in journalHeader.journalDetails">
+                <td>{{detail.debit}}</td>
+                <td>{{detail.credit}}</td>
+                <td>{{detail.accountChart.nameEn}}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" ng-click="editDetail(detail)">Edit</button>
+                    <button class="btn btn-danger btn-sm" ng-click="deleteDetail(detail.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Include a form or modal for editing/creating JournalDetails -->
+</div>

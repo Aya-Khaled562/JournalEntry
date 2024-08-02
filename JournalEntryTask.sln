@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalEntryTask.Api", "JournalEntryTask.Api\JournalEntryTask.Api.csproj", "{63A5C4BD-FF0D-4D42-A4AA-E154B8FBE4C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalEntryTask.Api", "JournalEntryTask.Api\JournalEntryTask.Api.csproj", "{63A5C4BD-FF0D-4D42-A4AA-E154B8FBE4C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalEntryTask.Application", "JournalEntryTask.Application\JournalEntryTask.Application.csproj", "{2E9682AD-1DC8-4057-BCC9-127241A5692D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalEntryTask.Application", "JournalEntryTask.Application\JournalEntryTask.Application.csproj", "{2E9682AD-1DC8-4057-BCC9-127241A5692D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalEntryTask.Domain", "JournalEntryTask.Domain\JournalEntryTask.Domain.csproj", "{5C4C0FF4-F8C3-44AE-82A0-4B64EF4CD4AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalEntryTask.Domain", "JournalEntryTask.Domain\JournalEntryTask.Domain.csproj", "{5C4C0FF4-F8C3-44AE-82A0-4B64EF4CD4AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalEntryTask.Infrastructure", "JournalEntryTask.Infrastructure\JournalEntryTask.Infrastructure.csproj", "{A053CA8B-6814-4508-B0C0-D9D20D64C9D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalEntryTask.Infrastructure", "JournalEntryTask.Infrastructure\JournalEntryTask.Infrastructure.csproj", "{A053CA8B-6814-4508-B0C0-D9D20D64C9D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalEntryTask.Presentation", "JournalEntryTask.Presentation\JournalEntryTask.Presentation.csproj", "{76FC3559-8724-40BF-AB9D-EB335CF0EEBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A053CA8B-6814-4508-B0C0-D9D20D64C9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A053CA8B-6814-4508-B0C0-D9D20D64C9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A053CA8B-6814-4508-B0C0-D9D20D64C9D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76FC3559-8724-40BF-AB9D-EB335CF0EEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FC3559-8724-40BF-AB9D-EB335CF0EEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FC3559-8724-40BF-AB9D-EB335CF0EEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FC3559-8724-40BF-AB9D-EB335CF0EEBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

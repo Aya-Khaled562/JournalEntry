@@ -49,7 +49,12 @@ namespace JournalEntryTask.Infrastructure.Presistence.Repositories
                 throw new KeyNotFoundException();
             }
 
-            _context.JournalDetails.Update(journalDetails);
+            existingJournalDetails.Debit = journalDetails.Debit;
+            existingJournalDetails.Credit = journalDetails.Credit;
+            existingJournalDetails.AccountId = journalDetails.AccountId;
+            existingJournalDetails.JournalHeaderId = journalDetails.JournalHeaderId;
+
+            _context.JournalDetails.Update(existingJournalDetails);
             await _context.SaveChangesAsync();
         }
     }

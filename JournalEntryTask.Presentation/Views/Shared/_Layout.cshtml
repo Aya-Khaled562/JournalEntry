@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JournalEntryTask.Presentation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JournalEntryTask.Presentation.styles.css" asp-append-version="true" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+
+
+</head>
+<body ng-app="journalApp">
+    <div class="container">
+        @RenderBody()
+    </div>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/app.js"></script>
+    <script src="~/js/services/journalservice.js"></script>
+    <script src="~/js/controllers/journalcontroller.js"></script>
+    <script src="~/js/controllers/journalformcontroller.js"></script>
+    <script src="~/js/interceptors/httpinterceptor.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
