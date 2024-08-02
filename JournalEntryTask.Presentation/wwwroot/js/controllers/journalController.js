@@ -1,9 +1,9 @@
-app.controller('journalController', ['$scope', 'journalService', '$window', '$location', async function ($scope, journalService, $window, $location) {
+app.controller('journalController', ['$scope', 'journalHeaderService', '$window', '$location', async function ($scope, journalHeaderService, $window, $location) {
     $scope.journalHeaders = [];
 
     async function loadJournalHeaders() {
         try {
-            $scope.journalHeaders = await journalService.getAll();
+            $scope.journalHeaders = await journalHeaderService.getAll();
             $scope.$apply(); 
         } catch (error) {
             console.error('Error loading journal headers:', error);
@@ -23,7 +23,7 @@ app.controller('journalController', ['$scope', 'journalService', '$window', '$lo
     $scope.deleteJournalHeader = async function (id) {
         if (confirm('Are you sure you want to delete this journal header?')) {
             try {
-                await journalService.delete(id);
+                await journalHeaderService.delete(id);
                 loadJournalHeaders();
             } catch (error) {
                 console.error('Error deleting journal header:', error);

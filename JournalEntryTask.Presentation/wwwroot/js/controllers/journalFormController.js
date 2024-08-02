@@ -1,14 +1,18 @@
-app.controller('journalFormController', ['$scope', '$routeParams', '$window', 'journalService', function ($scope, $routeParams, $window, journalService) {
-    //var id = $routeParams.id;
-    var id = $window.location.pathname.split('/').pop();
+import { formatDate , getIdFromUrl} from "../Utils/utils.js"
+app.controller('journalFormController', ['$scope', '$routeParams', '$window', '$location', 'journalHeaderService', function ($scope, $routeParams, $window, $location, journalHeaderService) {
+
+    var id = getIdFromUrl();
 
     $scope.journalHeader = {};
     $scope.journalDetails = [];
     async function loadJournalHeader() {
         if (id) {
             try {
-                let response = await journalService.getById(id);
+                let response = await journalHeaderService.getById(id);
+                response.entryDate = formatDate(response.entryDate);
+                $scope.journalHeader = response;
                 $scope.journalDetails = response.journalDetails;
+                $scope.$apply();
             }
             catch (error) {
                 console.error('Error fetching journal headers:', error);
@@ -20,12 +24,14 @@ app.controller('journalFormController', ['$scope', '$routeParams', '$window', 'j
     $scope.saveJournalHeader = async function () {
         try {
             if (id) {
-                await journalService.update($scope.journalHeader)
+                await journalHeaderService.update($scope.journalHeader)
             }
             else {
-                await journalService.create($scope.journalHeader)
+                await journalHeaderService.create($scope.journalHeader)
             }
-            $window.location.href = '/Journal';
+
+            alert("Journal Created successfully");
+            //$window.location.href = '/Journal';
         }
         catch (error) {
             console.error('Error saving journal header:', error);
@@ -39,7 +45,7 @@ app.controller('journalFormController', ['$scope', '$routeParams', '$window', 'j
     $scope.deleteDetail = async function (id) {
         if (confirm('Are you sure you want to delete this journal header?') && id) {
             try {
-                await journalService.delete(id);
+                await journalHeaderService.delete(id);
                 alert('Detail deleted successfully!');
                 $window.location.href = '/Journal';
             } catch (error) {
@@ -49,6 +55,8 @@ app.controller('journalFormController', ['$scope', '$routeParams', '$window', 'j
 
            
     };
+
+  
 
     loadJournalHeader();
 }]);

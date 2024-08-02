@@ -19,5 +19,9 @@ namespace JournalEntryTask.Presentation.Controllers
             return View();
         }
 
+        public IActionResult JournalDetailsForm(Guid id)
+        {
+            return View();
+        }
     }
 }
